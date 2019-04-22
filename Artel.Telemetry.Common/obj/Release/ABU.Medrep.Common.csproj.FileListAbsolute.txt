@@ -1,0 +1,16 @@
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\ABU.Medrep.Common.dll
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\ABU.Medrep.Common.pdb
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\EasyNetQ.dll
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\log4net.dll
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\Microsoft.Diagnostics.Tracing.EventSource.dll
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\Newtonsoft.Json.dll
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\RabbitMQ.Client.dll
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\log4net.xml
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\Microsoft.Diagnostics.Tracing.EventSource.xml
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\Newtonsoft.Json.xml
+C:\Project\ABU\Telegram\ABU.Medrep.Common\bin\Release\RabbitMQ.Client.xml
+C:\Project\ABU\Telegram\ABU.Medrep.Common\obj\Release\ABU.Medrep.Common.csprojAssemblyReference.cache
+C:\Project\ABU\Telegram\ABU.Medrep.Common\obj\Release\ABU.Medrep.Common.csproj.CoreCompileInputs.cache
+C:\Project\ABU\Telegram\ABU.Medrep.Common\obj\Release\ABU.Medrep.Common.csproj.CopyComplete
+C:\Project\ABU\Telegram\ABU.Medrep.Common\obj\Release\ABU.Medrep.Common.dll
+C:\Project\ABU\Telegram\ABU.Medrep.Common\obj\Release\ABU.Medrep.Common.pdb
