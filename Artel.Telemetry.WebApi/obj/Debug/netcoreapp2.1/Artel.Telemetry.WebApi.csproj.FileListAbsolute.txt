@@ -1,0 +1,14 @@
+E:\Project\telemetry\Artel.Telemetry.WebApi\bin\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.deps.json
+E:\Project\telemetry\Artel.Telemetry.WebApi\bin\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.runtimeconfig.json
+E:\Project\telemetry\Artel.Telemetry.WebApi\bin\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.runtimeconfig.dev.json
+E:\Project\telemetry\Artel.Telemetry.WebApi\bin\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.dll
+E:\Project\telemetry\Artel.Telemetry.WebApi\bin\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.pdb
+E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.csproj.CoreCompileInputs.cache
+E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.RazorAssemblyInfo.cache
+E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.RazorAssemblyInfo.cs
+E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.AssemblyInfoInputs.cache
+E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.AssemblyInfo.cs
+E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.RazorTargetAssemblyInfo.cache
+E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.dll
+E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.pdb
+E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.csprojAssemblyReference.cache

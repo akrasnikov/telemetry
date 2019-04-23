@@ -1,7 +1,7 @@
 ﻿using Artel.Telemetry.Common.Extension;
 using Artel.Telemetry.Domain.BaseClasses;
 using Artel.Telemetry.Domain.Data;
-using Artel.Telemetry.Domain.Models;
+using Artel.Telemetry.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -25,7 +25,7 @@ namespace Artel.Telemetry.Telegram
     {
 
         TelegramBotClient bot;
-        readonly string token = "888819119:AAHKw7XbNs2W40JYoopiaIoj8FAlW6HjCC0";
+        readonly string token = "813166674:AAEvj_It1UFXvtoP-JfbRkqrPETTmr8cIjM";
 
         ObjectCache memorycache;
         CacheItemPolicy policy;
@@ -37,9 +37,9 @@ namespace Artel.Telemetry.Telegram
             bot = new TelegramBotClient(token);
             bot.OnMessage += BotOnMessageReceived;
 
-            bot.OnCallbackQuery += Bot_OnCallbackQuery;
             bot.OnInlineQuery += Bot_OnInlineQuery;
             bot.OnUpdate += Bot_OnUpdate;
+           
 
             //NameValueCollection CacheSettings = new NameValueCollection(3);
             //CacheSettings.Add("CacheMemoryLimitMegabytes", Convert.ToString(100));
@@ -97,48 +97,6 @@ namespace Artel.Telemetry.Telegram
                     break;
             }
         }
-
-
-
-        private void Bot_OnCallbackQuery(object sender, CallbackQueryEventArgs ev)
-        {
-            Console.WriteLine($"Bot_OnCallbackQuery");
-            var message = ev.CallbackQuery.Message;
-            if (ev.CallbackQuery.Data == "callback1")
-            {
-                Console.WriteLine($"Bot_OnCallbackQuery =>callback1");
-                InlineQueryResultBase[] results = {
-                new InlineQueryResultLocation(
-                    id: "1",
-                    latitude: 40.7058316f,
-                    longitude: -74.2581888f,
-                    title: "New York")   // displayed result
-                    {
-                        InputMessageContent = new InputLocationMessageContent(
-                            latitude: 40.7058316f,
-                            longitude: -74.2581888f)    // message if result is selected
-                    },
-
-                new InlineQueryResultLocation(
-                    id: "2",
-                    latitude: 13.1449577f,
-                    longitude: 52.507629f,
-                    title: "Berlin") // displayed result
-                    {
-
-                        InputMessageContent = new InputLocationMessageContent(
-                            latitude: 13.1449577f,
-                            longitude: 52.507629f)   // message if result is selected
-                    }
-            };
-
-
-                bot.AnswerInlineQueryAsync(ev.CallbackQuery.Message.Chat.InviteLink, results, isPersonal: true, cacheTime: 0);
-            }
-        }
-
-
-
         internal void Start() => bot.StartReceiving(Array.Empty<UpdateType>());
         internal void Stop() => bot.StopReceiving();
 

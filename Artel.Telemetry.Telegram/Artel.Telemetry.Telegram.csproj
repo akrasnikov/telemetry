@@ -95,5 +95,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Artel.Telemetry.Common\Artel.Telemetry.Common.csproj">
+      <Project>{d89de53f-284c-4845-9345-1b89a3475467}</Project>
+      <Name>Artel.Telemetry.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Artel.Telemetry.Doman\Artel.Telemetry.Domain.csproj">
+      <Project>{90b97cb3-8a28-4e96-a378-63ea6e86c7e9}</Project>
+      <Name>Artel.Telemetry.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

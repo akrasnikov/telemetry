@@ -1,9 +1,10 @@
-﻿using Artel.Telemetry.Common.BaseClasses;
+﻿
 using Artel.Telemetry.Domain.BaseClasses;
-using Artel.Telemetry.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+using Artel.Telemetry.Domain.Model;
+
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
@@ -11,46 +12,46 @@ namespace Artel.Telemetry.Domain.Data
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private ABUMedrepContext db;
+        private PQMSEntities db;
 
         public CustomerRepository()
         {
-            this.db = new ABUMedrepContext();
+            this.db = new PQMSEntities();
         }
 
-        public IEnumerable<Customers> GetCustomers()
+        public IEnumerable<Diller> GetCustomers()
         {
-            return db.Customers;
+            return db.Dillers;
         }
-        public Customers GetCustomer(int id)
+        public Diller GetCustomer(int id)
         {
-            return db.Customers.Find(id);
+            return db.Dillers.Find(id);
         }
 
         public void Create(string contactName, string contactPhone, int telegramid, bool isEnabled, DateTime dateOfCreation)
         {
-            Customers customer = new Customers
+            Diller customer = new Diller
             {
                 ContactName = contactName,
                 ContactPhone = contactPhone,
                 TelegramId = telegramid,
                 IsEnabled = isEnabled,
-                DateOfCreation = dateOfCreation
+                DateTime = dateOfCreation
             };
-            db.Customers.Add(customer);
+            db.Dillers.Add(customer);
             db.SaveChanges();
         }
 
-        public void Update(Customers customer)
+        public void Update(Diller customer)
         {
             db.Entry(customer).State = EntityState.Modified;
         }
 
         public void Delete(int id)
         {
-            Customers customer = db.Customers.Find(id);
+            Diller customer = db.Dillers.Find(id);
             if (customer != null)
-                db.Customers.Remove(customer);
+                db.Dillers.Remove(customer);
         }
 
         public void Save()
@@ -62,14 +63,13 @@ namespace Artel.Telemetry.Domain.Data
         public bool CustomerIsEnabled(Int64 id)
         {
 
-            var customer = db.Customers.FirstOrDefault(x => x.TelegramId == id);
-            return customer is Customers ? customer.IsEnabled : false;            
+            var customer = db.Dillers.FirstOrDefault(x => x.TelegramId == id);
+            return customer is Diller ? (bool)customer.IsEnabled : false;            
         }
 
         public void Dispose()
         {
             db.Dispose();
-        }
-
+        }      
     }
 }

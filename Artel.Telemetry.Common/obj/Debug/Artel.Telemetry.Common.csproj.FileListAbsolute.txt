@@ -1,0 +1,10 @@
+E:\Project\telemetry\Artel.Telemetry.Common\obj\Debug\Artel.Telemetry.Common.csproj.CoreCompileInputs.cache
+E:\Project\telemetry\Artel.Telemetry.Common\bin\Debug\Artel.Telemetry.Common.dll
+E:\Project\telemetry\Artel.Telemetry.Common\bin\Debug\Artel.Telemetry.Common.pdb
+E:\Project\telemetry\Artel.Telemetry.Common\bin\Debug\EasyNetQ.dll
+E:\Project\telemetry\Artel.Telemetry.Common\bin\Debug\log4net.dll
+E:\Project\telemetry\Artel.Telemetry.Common\bin\Debug\log4net.xml
+E:\Project\telemetry\Artel.Telemetry.Common\obj\Debug\Artel.Telemetry.Common.csproj.CopyComplete
+E:\Project\telemetry\Artel.Telemetry.Common\obj\Debug\Artel.Telemetry.Common.dll
+E:\Project\telemetry\Artel.Telemetry.Common\obj\Debug\Artel.Telemetry.Common.pdb
+E:\Project\telemetry\Artel.Telemetry.Common\obj\Debug\Artel.Telemetry.Common.csprojAssemblyReference.cache

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Line">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LineNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Camera_FronView" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Camera_BackRight" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Camera_BackLeft" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OperatorID" Type="Int32" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Operator">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelegramId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="PQMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Lines" EntityType="Self.Line" />
+    <EntitySet Name="Operators" EntityType="Self.Operator" />
+    <EntitySet Name="Dillers" EntityType="Model.Diller" />
+    <EntitySet Name="HistoryDillers" EntityType="Model.HistoryDiller" />
+    <AssociationSet Name="FK_HistoryDillers_Dillers" Association="Model.FK_HistoryDillers_Dillers">
+      <End Role="Diller" EntitySet="Dillers" />
+      <End Role="HistoryDiller" EntitySet="HistoryDillers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Diller">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContactName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsEnabled" Type="Boolean" />
+    <Property Name="TelegramId" Type="Int64" Nullable="false" />
+    <Property Name="RegionID" Type="Int32" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Blocked" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HistoryDillers" Relationship="Model.FK_HistoryDillers_Dillers" FromRole="Diller" ToRole="HistoryDiller" />
+  </EntityType>
+  <EntityType Name="HistoryDiller">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DillersId" Type="Int32" Nullable="false" />
+    <Property Name="Barcode" Type="Int32" Nullable="false" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Diller" Relationship="Model.FK_HistoryDillers_Dillers" FromRole="HistoryDiller" ToRole="Diller" />
+  </EntityType>
+  <Association Name="FK_HistoryDillers_Dillers">
+    <End Type="Model.Diller" Role="Diller" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Model.HistoryDiller" Role="HistoryDiller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diller">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HistoryDiller">
+        <PropertyRef Name="DillersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

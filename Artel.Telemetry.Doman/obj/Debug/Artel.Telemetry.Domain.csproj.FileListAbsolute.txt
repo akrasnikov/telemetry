@@ -1,0 +1,13 @@
+E:\Project\telemetry\Artel.Telemetry.Doman\obj\Debug\Artel.Telemetry.Domain.csproj.CoreCompileInputs.cache
+E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\Artel.Telemetry.Domain.dll.config
+E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\Artel.Telemetry.Domain.dll
+E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\Artel.Telemetry.Domain.pdb
+E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\EntityFramework.dll
+E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\EntityFramework.xml
+E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\ru\EntityFramework.resources.dll
+E:\Project\telemetry\Artel.Telemetry.Doman\obj\Debug\Artel.Telemetry.Domain.csproj.CopyComplete
+E:\Project\telemetry\Artel.Telemetry.Doman\obj\Debug\Artel.Telemetry.Domain.dll
+E:\Project\telemetry\Artel.Telemetry.Doman\obj\Debug\Artel.Telemetry.Domain.pdb
+E:\Project\telemetry\Artel.Telemetry.Doman\obj\Debug\Artel.Telemetry.Domain.csprojAssemblyReference.cache

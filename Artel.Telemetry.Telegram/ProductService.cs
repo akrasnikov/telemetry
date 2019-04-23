@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using Artel.Telemetry.Domain.Models;
+using Artel.Telemetry.Domain.Model;
 using Artel.Telemetry.Domain.BaseClasses;
 using System.Threading.Tasks;
 using Telegram.Bot;
@@ -21,7 +21,7 @@ namespace Artel.Telemetry.Telegram
     internal class ProductService
     {
         WorkflowState productState;
-        Pharmacies product;
+        Diller product;
 
         Func<TelegramBotClient, Message, Task> iterator;
 
@@ -47,24 +47,38 @@ namespace Artel.Telemetry.Telegram
         internal async Task RootMenu(TelegramBotClient bot, Message message)
         {
             this.State = WorkflowState.Default;
-            ReplyKeyboardMarkup rootKeyboard = new[]
-            {
-               new[] { "Проверить", "Назад" }
-            };
-            rootKeyboard.Selective = true;
-            rootKeyboard.ResizeKeyboard = true;
+           
 
             var text = "Введите штрих код";
-            await bot.SendTextMessageAsync(message.Chat.Id, text, replyMarkup: rootKeyboard);
+            await bot.SendTextMessageAsync(message.Chat.Id, text, replyMarkup: null);
 
         }
 
         internal void CheckProductIterator(TelegramBotClient bot, Message message) => iterator(bot, message);
 
         internal async Task CheckProductByBarcode(TelegramBotClient bot, Message message)
-        { 
-            var text = "Введите штрих код";
-            await bot.SendTextMessageAsync(message.Chat.Id, text, replyMarkup: cancelKeyboard);
+        {
+            try
+            {
+                var barcode = Convert.ToInt64(message.Text);
+                using (IProductRepository productRepository = new ProductRepository())
+                {
+                    var product = productRepository.GetProductByBarcode(barcode.ToString());
+                    await bot.SendTextMessageAsync(message.Chat.Id, $"Системой отправлены фото по штрикоду: {barcode}", replyMarkup: null);
+                    await bot.SendPhotoAsync(message.Chat.Id, product.Camera_BackLeft, "Вид сзади слева");
+                    await bot.SendPhotoAsync(message.Chat.Id, product.Camera_BackRight, "Вид сзади справа");
+                    await bot.SendPhotoAsync(message.Chat.Id, product.Camera_FronView, "Вид спреди");
+                }
+            }
+            catch (FormatException ex)
+            {
+                throw new Exception("формат сообщения не соотвествует штрихкоду");
+
+            }
+            finally
+            {
+
+            }
         }
 
         internal async Task CancelProcedure(TelegramBotClient bot, Message message)
@@ -73,47 +87,8 @@ namespace Artel.Telemetry.Telegram
             iterator = CheckProductByBarcode;
             await RootMenu(bot, message);
         }
-      
-        private async Task SetPharmacyLocationAsync(TelegramBotClient bot, Message message)
-        {
-            string text = String.Empty;
-            try
-            {
-                if (message.Type != MessageType.Location)
-                {
-                    text = "Отправьте локацию торговой точки";
-                    await bot.SendTextMessageAsync(message.Chat.Id, text, ParseMode.Html);
-                    return;
-                }
-                product.Latitude = message.Location.Latitude;
-                product.Longitude = message.Location.Longitude;
-                product.DateCreate = DateTime.Now;
-                product.IsNew = true;
-
-                this.State = WorkflowState.Default;
-
-                text = "Регистрация торговой точки передана на рассмотрение администратора ";
-
-                using (IFarmacyRepository farmacyRepository = new PharmacyRepository())
-                {
-                    farmacyRepository.Create(product);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                text = "Ошибка регистрации";
-            }
-            finally
-            {
-                await bot.SendTextMessageAsync(message.Chat.Id, text, ParseMode.Html);
-
-                await RootMenu(bot, message);
-                product = null;
 
 
-            }
-        }
+
     }
 }

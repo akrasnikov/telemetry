@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Artel.Telemetry.WebApi", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artel.Telemetry.Telegram", "Artel.Telemetry.Telegram\Artel.Telemetry.Telegram.csproj", "{21417529-6BF5-45A2-B3AA-F9CD10FBCB80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artel.Telemetry.Doman", "Artel.Telemetry.Doman\Artel.Telemetry.Doman.csproj", "{90B97CB3-8A28-4E96-A378-63EA6E86C7E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artel.Telemetry.Domain", "Artel.Telemetry.Doman\Artel.Telemetry.Domain.csproj", "{90B97CB3-8A28-4E96-A378-63EA6E86C7E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
