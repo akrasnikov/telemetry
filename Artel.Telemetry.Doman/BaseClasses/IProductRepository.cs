@@ -11,5 +11,6 @@ namespace Artel.Telemetry.Domain.BaseClasses
     {
         string[] Picture(long barcode);
         Line GetProductByBarcode(string barcode);
+        void ClearBarcodeCRLF();
     }
 }

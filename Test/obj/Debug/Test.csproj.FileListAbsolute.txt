@@ -1,0 +1,11 @@
+E:\Project\telemetry\Test\bin\Debug\Test.exe.config
+E:\Project\telemetry\Test\bin\Debug\Test.exe
+E:\Project\telemetry\Test\bin\Debug\Test.pdb
+E:\Project\telemetry\Test\bin\Debug\Newtonsoft.Json.dll
+E:\Project\telemetry\Test\bin\Debug\Telegram.Bot.dll
+E:\Project\telemetry\Test\bin\Debug\Newtonsoft.Json.xml
+E:\Project\telemetry\Test\bin\Debug\Telegram.Bot.xml
+E:\Project\telemetry\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+E:\Project\telemetry\Test\obj\Debug\Test.csproj.CopyComplete
+E:\Project\telemetry\Test\obj\Debug\Test.exe
+E:\Project\telemetry\Test\obj\Debug\Test.pdb

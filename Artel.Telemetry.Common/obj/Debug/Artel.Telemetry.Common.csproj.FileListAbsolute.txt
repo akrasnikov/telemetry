@@ -7,4 +7,7 @@ E:\Project\telemetry\Artel.Telemetry.Common\bin\Debug\log4net.xml
 E:\Project\telemetry\Artel.Telemetry.Common\obj\Debug\Artel.Telemetry.Common.csproj.CopyComplete
 E:\Project\telemetry\Artel.Telemetry.Common\obj\Debug\Artel.Telemetry.Common.dll
 E:\Project\telemetry\Artel.Telemetry.Common\obj\Debug\Artel.Telemetry.Common.pdb
+E:\Project\telemetry\Artel.Telemetry.Common\bin\Debug\Artel.Telemetry.Common.dll.config
+E:\Project\telemetry\Artel.Telemetry.Common\bin\Debug\Newtonsoft.Json.dll
+E:\Project\telemetry\Artel.Telemetry.Common\bin\Debug\Newtonsoft.Json.xml
 E:\Project\telemetry\Artel.Telemetry.Common\obj\Debug\Artel.Telemetry.Common.csprojAssemblyReference.cache

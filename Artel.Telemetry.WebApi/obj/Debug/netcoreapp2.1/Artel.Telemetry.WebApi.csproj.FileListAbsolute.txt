@@ -11,4 +11,3 @@ E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Teleme
 E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.RazorTargetAssemblyInfo.cache
 E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.dll
 E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.pdb
-E:\Project\telemetry\Artel.Telemetry.WebApi\obj\Debug\netcoreapp2.1\Artel.Telemetry.WebApi.csprojAssemblyReference.cache

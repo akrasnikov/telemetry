@@ -64,12 +64,27 @@ namespace Artel.Telemetry.Domain.Data
         {
 
             var customer = db.Dillers.FirstOrDefault(x => x.TelegramId == id);
-            return customer is Diller ? (bool)customer.IsEnabled : false;            
+            return customer is Diller ? (bool)customer.IsEnabled : false;
         }
 
         public void Dispose()
         {
             db.Dispose();
-        }      
+        }
+
+        public string Language(long telegramid)
+        {
+            var customer = db.Dillers
+                .Where(c => c.TelegramId == telegramid).FirstOrDefault();
+            return customer.Language;
+        }
+
+        public void SetLanguage(long id, string language)
+        {
+            var customer = db.Dillers
+                .Where(c => c.TelegramId == id).FirstOrDefault();
+            customer.Language = language;
+            db.SaveChangesAsync();
+        }
     }
 }

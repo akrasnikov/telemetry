@@ -12,21 +12,12 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ContactName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="ContactPhone" Type="nvarchar" MaxLength="150" />
+          <Property Name="Language" Type="nvarchar" MaxLength="150" />
           <Property Name="IsEnabled" Type="bit" />
           <Property Name="TelegramId" Type="bigint" Nullable="false" />
           <Property Name="RegionID" Type="int" />
           <Property Name="DateTime" Type="datetime" Nullable="false" />
           <Property Name="Blocked" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HistoryDillers">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DillersId" Type="int" Nullable="false" />
-          <Property Name="Barcode" Type="int" Nullable="false" />
-          <Property Name="DateTime" Type="datetime" Nullable="false" />
-          <Property Name="Comment" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Line">
           <Key>
@@ -53,29 +44,10 @@
           <Property Name="TelegramId" Type="nvarchar" MaxLength="150" />
           <Property Name="Comment" Type="nvarchar" MaxLength="150" />
         </EntityType>
-        <Association Name="FK_HistoryDillers_Dillers">
-          <End Role="Dillers" Type="Self.Dillers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="HistoryDillers" Type="Self.HistoryDillers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dillers">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="HistoryDillers">
-              <PropertyRef Name="DillersId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Хранилище ModelContainer">
           <EntitySet Name="Dillers" EntityType="Self.Dillers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HistoryDillers" EntityType="Self.HistoryDillers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Line" EntityType="Self.Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Operator" EntityType="Self.Operator" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_HistoryDillers_Dillers" Association="Self.FK_HistoryDillers_Dillers">
-            <End Role="Dillers" EntitySet="Dillers" />
-            <End Role="HistoryDillers" EntitySet="HistoryDillers" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -110,11 +82,6 @@
           <EntitySet Name="Lines" EntityType="Self.Line" />
           <EntitySet Name="Operators" EntityType="Self.Operator" />
           <EntitySet Name="Dillers" EntityType="Model.Diller" />
-          <EntitySet Name="HistoryDillers" EntityType="Model.HistoryDiller" />
-          <AssociationSet Name="FK_HistoryDillers_Dillers" Association="Model.FK_HistoryDillers_Dillers">
-            <End Role="Diller" EntitySet="Dillers" />
-            <End Role="HistoryDiller" EntitySet="HistoryDillers" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Diller">
           <Key>
@@ -123,38 +90,13 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ContactName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="ContactPhone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="IsEnabled" Type="Boolean" />
           <Property Name="TelegramId" Type="Int64" Nullable="false" />
           <Property Name="RegionID" Type="Int32" />
           <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Blocked" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="HistoryDillers" Relationship="Model.FK_HistoryDillers_Dillers" FromRole="Diller" ToRole="HistoryDiller" />
         </EntityType>
-        <EntityType Name="HistoryDiller">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DillersId" Type="Int32" Nullable="false" />
-          <Property Name="Barcode" Type="Int32" Nullable="false" />
-          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Comment" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Diller" Relationship="Model.FK_HistoryDillers_Dillers" FromRole="HistoryDiller" ToRole="Diller" />
-        </EntityType>
-        <Association Name="FK_HistoryDillers_Dillers">
-          <End Type="Model.Diller" Role="Diller" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Model.HistoryDiller" Role="HistoryDiller" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Diller">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="HistoryDiller">
-              <PropertyRef Name="DillersId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -196,19 +138,9 @@
                 <ScalarProperty Name="RegionID" ColumnName="RegionID" />
                 <ScalarProperty Name="TelegramId" ColumnName="TelegramId" />
                 <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
                 <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HistoryDillers">
-            <EntityTypeMapping TypeName="Model.HistoryDiller">
-              <MappingFragment StoreEntitySet="HistoryDillers">
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="DillersId" ColumnName="DillersId" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

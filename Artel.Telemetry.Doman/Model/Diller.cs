@@ -14,22 +14,14 @@ namespace Artel.Telemetry.Domain.Model
     
     public partial class Diller
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Diller()
-        {
-            this.HistoryDillers = new HashSet<HistoryDiller>();
-        }
-    
         public int id { get; set; }
         public string ContactName { get; set; }
         public string ContactPhone { get; set; }
+        public string Language { get; set; }
         public Nullable<bool> IsEnabled { get; set; }
         public long TelegramId { get; set; }
         public Nullable<int> RegionID { get; set; }
         public System.DateTime DateTime { get; set; }
         public bool Blocked { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HistoryDiller> HistoryDillers { get; set; }
     }
 }

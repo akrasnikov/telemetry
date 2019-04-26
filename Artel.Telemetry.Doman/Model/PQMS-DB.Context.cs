@@ -28,6 +28,5 @@ namespace Artel.Telemetry.Domain.Model
         public virtual DbSet<Line> Lines { get; set; }
         public virtual DbSet<Operator> Operators { get; set; }
         public virtual DbSet<Diller> Dillers { get; set; }
-        public virtual DbSet<HistoryDiller> HistoryDillers { get; set; }
     }
 }

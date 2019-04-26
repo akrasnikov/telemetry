@@ -1,6 +1,5 @@
 E:\Project\telemetry\Artel.Telemetry.Telegram\obj\Debug\Artel.Telemetry.Telegram.csprojAssemblyReference.cache
 E:\Project\telemetry\Artel.Telemetry.Telegram\obj\Debug\Artel.Telemetry.Telegram.csproj.CoreCompileInputs.cache
-E:\Project\telemetry\Artel.Telemetry.Telegram\obj\Debug\Artel.Telemetry.Telegram.exe.config
 E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\Artel.Telemetry.Telegram.exe.config
 E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\Artel.Telemetry.Telegram.exe
 E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\Artel.Telemetry.Telegram.pdb
@@ -20,3 +19,11 @@ E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\ru\EntityFramework.resou
 E:\Project\telemetry\Artel.Telemetry.Telegram\obj\Debug\Artel.Telemetry.Telegram.csproj.CopyComplete
 E:\Project\telemetry\Artel.Telemetry.Telegram\obj\Debug\Artel.Telemetry.Telegram.exe
 E:\Project\telemetry\Artel.Telemetry.Telegram\obj\Debug\Artel.Telemetry.Telegram.pdb
+E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\Newtonsoft.Json.dll
+E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\Artel.Telemetry.Common.dll.config
+E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\Newtonsoft.Json.xml
+E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\Topshelf.dll
+E:\Project\telemetry\Artel.Telemetry.Telegram\bin\Debug\Topshelf.xml

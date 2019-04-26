@@ -36,19 +36,9 @@
           <ScalarProperty Name="RegionID" ColumnName="RegionID" />
           <ScalarProperty Name="TelegramId" ColumnName="TelegramId" />
           <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
           <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
           <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="HistoryDillers">
-      <EntityTypeMapping TypeName="Model.HistoryDiller">
-        <MappingFragment StoreEntitySet="HistoryDillers">
-          <ScalarProperty Name="Comment" ColumnName="Comment" />
-          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-          <ScalarProperty Name="DillersId" ColumnName="DillersId" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

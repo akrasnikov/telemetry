@@ -57,9 +57,6 @@
     <Compile Include="Model\Diller.cs">
       <DependentUpon>PQMS-DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\HistoryDiller.cs">
-      <DependentUpon>PQMS-DB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Line.cs">
       <DependentUpon>PQMS-DB.tt</DependentUpon>
     </Compile>

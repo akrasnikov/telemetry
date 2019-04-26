@@ -18,7 +18,8 @@ namespace Artel.Telemetry.Domain.Data
         }
         public Line GetProductByBarcode(string barcode)
         {
-            return db.Lines.FirstOrDefault(x => x.Barcode == barcode);
+            var line = db.Lines.FirstOrDefault(x => x.Barcode == barcode);
+            return line;
         }
 
         public void Dispose()
@@ -30,6 +31,19 @@ namespace Artel.Telemetry.Domain.Data
         public string[] Picture(long barcode)
         {
             throw new NotImplementedException();
+        }
+
+        public void ClearBarcodeCRLF()
+        {
+            var barcode = db.Lines.ToList();
+            foreach (var b in barcode)
+            {
+                var s = b.Barcode;
+                s = s.TrimEnd(new char[] { '\r', '\n' });
+                b.Barcode = s;
+                //db.Lines.Update(b);               
+            }
+            db.SaveChanges();
         }
     }
 }

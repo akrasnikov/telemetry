@@ -10,4 +10,5 @@ E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\ru\EntityFramework.resource
 E:\Project\telemetry\Artel.Telemetry.Doman\obj\Debug\Artel.Telemetry.Domain.csproj.CopyComplete
 E:\Project\telemetry\Artel.Telemetry.Doman\obj\Debug\Artel.Telemetry.Domain.dll
 E:\Project\telemetry\Artel.Telemetry.Doman\obj\Debug\Artel.Telemetry.Domain.pdb
+E:\Project\telemetry\Artel.Telemetry.Doman\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 E:\Project\telemetry\Artel.Telemetry.Doman\obj\Debug\Artel.Telemetry.Domain.csprojAssemblyReference.cache

@@ -25,7 +25,7 @@ namespace Artel.Telemetry.Telegram
     {
 
         TelegramBotClient bot;
-        readonly string token = "813166674:AAEvj_It1UFXvtoP-JfbRkqrPETTmr8cIjM";
+        string token = "813166674:AAEvj_It1UFXvtoP-JfbRkqrPETTmr8cIjM";
 
         ObjectCache memorycache;
         CacheItemPolicy policy;
@@ -34,12 +34,16 @@ namespace Artel.Telemetry.Telegram
 
         public TelegramService()
         {
-            bot = new TelegramBotClient(token);
+            bot = new TelegramBotClient("813166674:AAEvj_It1UFXvtoP-JfbRkqrPETTmr8cIjM");
             bot.OnMessage += BotOnMessageReceived;
 
             bot.OnInlineQuery += Bot_OnInlineQuery;
             bot.OnUpdate += Bot_OnUpdate;
-           
+
+            bot.StartReceiving();
+            var me = bot.GetMeAsync().Result;
+            Console.WriteLine($"Hello! My name is {me.FirstName}");
+
 
             //NameValueCollection CacheSettings = new NameValueCollection(3);
             //CacheSettings.Add("CacheMemoryLimitMegabytes", Convert.ToString(100));
@@ -47,8 +51,10 @@ namespace Artel.Telemetry.Telegram
             //CacheSettings.Add("pollingInterval", Convert.ToString("00:00:10"));
             //cache = new MemoryCache("TestCache", CacheSettings);
 
+
             debug = new ConsoleMessage();
             debug.Print("Start Telegram Service");
+
         }
 
         private void Bot_OnInlineQuery(object sender, InlineQueryEventArgs e)
@@ -73,9 +79,9 @@ namespace Artel.Telemetry.Telegram
                     Console.WriteLine(e.Update.CallbackQuery.Data);
                     try
                     {
-                        await bot.SendTextMessageAsync(
-                            e.Update.CallbackQuery.Message.Chat.Id,
-                            $"Your choice is: {e.Update.CallbackQuery.Data}");
+                        //await bot.SendTextMessageAsync(
+                        //e.Update.CallbackQuery.Message.Chat.Id,
+                        //$"Your choice is: {e.Update.CallbackQuery.Data}");
                     }
                     catch (Exception ex)
                     {
@@ -129,34 +135,47 @@ namespace Artel.Telemetry.Telegram
 
                 if (productService is null)
                 {
-                    productService = new ProductService();
+                    productService = new ProductService(message);
                     memorycache.Set(chatId, productService, DateTime.Now.AddMinutes(10));
                 }
 
-                //if (message.Type == MessageType.Location) if (dillerService.State == DillerState.Find) await dillerService.GetPharmacyByLocationAsync(bot, message);
-
+                if (productService.MakeRequest(DateTime.Now)) return;
 
                 if (message.Type == MessageType.Text)
                 {
                     switch (message.Text.Split(' ').First())
                     {
-                        case "Отменить":
-                            await productService.CancelProcedure(bot, message);
+                        case "clear-cr-lf":
+                            productService.ClearBarcode();
+                            debug.Print("Command - clear");
                             return;
+                        case "Отменить":
+                            //await productService.CancelProcedure(bot, message);
+                            return;
+                        case "Русский":
+                            await productService.SelectLanguageAsync(bot, message, "ru");
+                            return;
+                        case "English":
+                            await  productService.SelectLanguageAsync(bot, message, "en");
+                            return;
+                        case "Ўзбекча":
+                            await productService.SelectLanguageAsync(bot, message, "uz");
+                            return;
+
                     }
-
                     await productService.CheckProductByBarcode(bot, message);
+                    await productService.RootMenu(bot, message);
                 }
 
-                switch (productService.State)
-                {
-                    case WorkflowState.Check:
-                        productService.CheckProductIterator(bot, message);
-                        break;
-                    case WorkflowState.Default:
-                        await productService.RootMenu(bot, message);
-                        break;
-                }
+                //switch (productService.State)
+                //{
+                //    //case WorkflowState.Check:
+                //    //    productService.CheckProductIterator(bot, message);
+                //    //    break;
+                //    case WorkflowState.Default:
+                //        await productService.RootMenu(bot, message);
+                //        break;
+                //}
                 //debug.Print($"Pharmacy service state: {pharmacyService.State}");
                 //await bot.SendChatActionAsync(message.Chat.Id, ChatAction.Typing);
                 //await bot.SendLocationAsync(message.Chat.Id, latitude: 40.7058316f, longitude: -74.2581888f);
